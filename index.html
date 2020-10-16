@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>登录按钮动画效果</title>
+</head>
+<body>
+    <button class="login">
+        <p>login</p>
+        <div class="loading">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- 使用svg绘制 -->
+        <svg width='30px' class='checkmark' height='30px' stroke='white' fill='none'>
+            <polyline points='2,10 12,18 28,2'></polyline>
+        </svg>
+    </button>
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $($('.login').click(
+        function(){
+            $(this).toggleClass('active');
+            $('.loading').css("opacity","1")
+            setTimeout(
+                () => {
+                    $(this).toggleClass('verity')
+                    $('.loading').css("opacity","0")
+                },500
+            )
+        }
+    ));
+</script>
+</html>
